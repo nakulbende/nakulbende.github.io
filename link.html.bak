@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!--
+Template Name: VendorAuthor: <a href="http://www.os-templates.com/">OS Templates</a>Author URI: http://www.os-templates.com/Licence: Free to use under our free template licence terms
+Licence URI: http://www.os-templates.com/template-terms-->
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>NB: Links</title>
+    <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+  </head>
+  <body id="top">
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="wrapper row1">
+      <header id="header" class="clear">
+        <!-- ################################################################################################ -->
+        <div id="logo">
+          <h1><a href="index.html">Links</a></h1>
+          <p>Nakul Bende</p>
+        </div>
+        <nav id="mainav">
+          <ul class="clear">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="research.html">Research</a></li>
+            <li><a class="drop" href="hobbies.html">Hobbies</a>
+              <ul>
+                <li><a href="photo.html">Photography</a></li>
+                <li><a href="gami.html">Origami</a></li>
+                <li><a href="outreach.html">Outreach</a></li>
+                <li><a href="diy.html">DIY Projects</a></li>
+              </ul>
+            </li>
+            <!--li><a class="drop" href="#">Dropdown</a>
+          <ul>            <li><a href="#">Level 2</a></li>            <li><a class="drop" href="#">Level 2 + Drop</a>              <ul>                <li><a href="#">Level 3</a></li>                <li><a href="#">Level 3</a></li>              </ul>            </li>          </ul>        </li-->
+            <li><a href="pub.html">Publications</a></li>
+            <li><a href="bio.html">Biography</a></li>
+            <li class="active"><a href="link.html">Links</a></li>
+            <li><a href="contact.html">Contacts</a></li>
+          </ul>
+        </nav>
+        <!-- ################################################################################################ -->
+      </header>
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="wrapper row2">
+      <div id="breadcrumb">
+        <!-- ############################################################################################################# -->
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="link.html">Links</a></li>
+        </ul>
+        <!-- ############################################################################################################# -->
+      </div>
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="wrapper row3">
+      <main id="container" class="clear">
+        <!-- container body -->
+        <!-- ########################################################################################## -->
+        <h1>Current affiliations</h1>
+        <ul>
+          <li><a href="http://www.polyone.com/" target="_blank">Corporate
+              Research and Development, PolyOne Corporation</a></li>
+        </ul>
+        <h1>Places I have been affiliated with</h1>
+        <ul>
+          <p><strong>Doctorate</strong></p>
+          <li><a href="http://www.pse.umass.edu/faculty/researchgroup/hayward/"
+
+              target="_blank">Hayward research group, PSE, UMass</a></li>
+          <li><a href="http://www.pse.umass.edu/">Department of Polymer Science
+              and Engineering, UMass Amherst</a></li>
+          <li>Collaborators:
+            <ul>
+              <li><a href="http://blogs.umass.edu/csantang/" target="_blank">Chris
+                  Santangelo, UMass Physics</a></li>
+              <li><a href="http://www.math.wisc.edu/%7Eaevans" target="_blank">Art
+                  Evans, Van Vleck Assistant professor, Univ of
+                  Wisconsin-Madison</a></li>
+              <li><a href="https://cohengroup.lassp.cornell.edu/" target="_blank">Itai
+                  Cohen, Cornell Physics</a></li>
+              <li><a href="http://www.langorigami.com/" target="_blank">Robert
+                  Lang</a></li>
+              <li><a href="http://mars.wne.edu/%7Ethull/" target="_blank">Tom
+                  Hull's webpage</a></li>
+              <li><a href="http://www.che.ncsu.edu/dickeygroup/" target="_blank">Michael
+                  Dickey, NC State Univ</a></li>
+              <li><a href="http://www.che.ncsu.edu/genzergroup/" target="_blank">Jan
+                  Genzer, NC State Univ</a></li>
+            </ul>
+          </li>
+          <p><strong>Undergraduate, Masters</strong></p>
+          <li><a href="http://www.uakron.edu/dpe/people/profile.dot?id=c6e8da75-333e-4d6e-b7f2-e78e7ee67ed8"
+
+              target="_blank">Jana Research Lab, Polymer Engineering, Univ of
+              Akron</a></li>
+          <li><a href="http://www2.mpip-mainz.mpg.de/%7Evollmerd/" target="_blank">Doris
+              Vollmer's group, Max Planck Research for Polymer, Mainz, Germany</a></li>
+          <li><a href="http://machinopolymers.com/" target="_blank">Machino
+              Polymers Limited</a></li>
+          <li><a href="http://www.ysnegi.com/" target="_blank">Negi Research
+              lab, IIT Roorkee</a></li>
+          <li><a href="http://www.iitr.ac.in/" target="_blank">IIT Roorkee</a>,
+            My <em>alma mater</em></li>
+        </ul>
+        <h1>Other interesting links</h1>
+        <ul>
+          <p><strong>Activities</strong></p>
+          <li><a href="http://www.pse.umass.edu/mrsec/outreach/index.html" target="_blank">UMass
+              PSE Outreach</a></li>
+          <li><a href="https://www.facebook.com/UMassMrsecAspireProgram" target="_blank">ASPIRE</a>
+            (an outreach activity I organize for high school students)</li>
+          <p><strong>Origami, Science and Math (or all of those!)</strong></p>
+          <li><a href="http://www.georgehart.com/" target="_blank">George Hart's
+              webpage</a>: Really inspiring models, Prof. Hart is amazing at
+            kindling your interest in math through everyday examples.</li>
+          <li><a href="https://www.youtube.com/user/Vihart" target="_blank">Vi
+              Hart's youtube channel</a></li>
+          <li><a href="http://erikdemaine.org/" target="_blank">Erik Demaine's
+              webpage</a>: Glassblowing, computer simulations, puzzles, origami
+            models and science! - everything.</li>
+          <li><a href="http://www.langorigami.com/" target="_blank">Robert Lang</a>:
+            Physicist, Origami artist</li>
+          <li><a href="http://mars.wne.edu/%7Ethull/" target="_blank">Tom Hull's
+              webpage</a>: Origami mathematician</li>
+          <p><strong>Photography</strong></p>
+          <p>I admire a wide array of work, and firmly believe that beauty is in
+            the beholder's eyes. That being said, these are my absolute
+            favorite.</p>
+          <li><a href="http://stevemccurry.com/" target="_blank">Steve McCurry's
+              Portfolio</a>: One of the greatest photographers of our times.</li>
+          <li><a href="http://www.vivianmaier.com/" target="_blank">The curated
+              work of Vivian Maier</a>: a caregiver from New York who did street
+            photography on side</li>
+          <li><a href="http://davidduchemin.com/" target="_blank">David duChemin</a></li>
+          <li><a href="http://craftandvision.com/" target="_blank">Crafts &amp;
+              Vision</a></li>
+        </ul>
+        <!-- / container body -->
+        <div class="clear"></div>
+      </main>
+    </div>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="wrapper row4"> </div>
+    <footer id="footer" class="clear">
+      <!-- ################################################################################################ -->
+      <div class="one_half first">
+        <h6 class="title">Nakul Bende</h6>
+        <address class="push30">Senior R&amp;D Engineer<br>
+          Leadership Development Program Candidate<br>
+          Corporate R&amp;D<br>
+          PolyOne Corporation </address>
+        <ul class="nospace">
+          <li><span class="icon-envelope-alt"></span> <img src="images/em_d.png"
+
+              alt="nice try" style="width: 235px; height: 35px;"></li>
+        </ul>
+      </div>
+      <div class="one_half">
+        <h6 class="title">Other links</h6>
+        <table class="nospace clear" bgcolor="#292929">
+          <tbody>
+            <tr>
+              <td ,="" width="25%" valign="middle">
+                <div class="imgl"><a href="http://scholar.google.com/citations?user=VlB-r4UAAAAJ&amp;hl=en"><img
+
+                      src="images/logo/scholar.png" alt="GitHub" class="rounded"
+
+                      height="80" width="79"></a></div>
+                <p class="pad5"><a href="http://scholar.google.com/citations?user=VlB-r4UAAAAJ&amp;hl=en">Google
+                    scholar</a></p>
+              </td>
+              <td width="25%" valign="middle">
+                <div class="imgl"><a href="http://www.linkedin.com/in/nakulbende"><img
+
+                      src="images/logo/linkedin.png" alt="LinkedIn profile" class="rounded"
+
+                      height="80" width="79"></a></div>
+                <p class="pad5"><a href="http://www.linkedin.com/in/nakulbende">LinkedIn</a></p>
+              </td>
+            </tr>
+            <tr bgcolor="#888888">
+              <td width="25%" valign="middle">
+                <div class="imgl"><a href="http://500px.com/nakulbende"><img src="images/logo/500px.png"
+
+                      alt="Image gallery at 500px" class="rounded" height="80" width="79"></a></div>
+                <p class="pad5"><a href="http://500px.com/nakulbende" target="_blank">500px
+                    gallery</a></p>
+              </td>
+              <td width="25%" valign="middle">
+                <div class="imgl"><a href="http://github.com/nakulbende" target="_blank"><img
+
+                      src="images/logo/github.png" alt="GitHub" class="rounded"
+
+                      height="80" width="79"></a></div>
+                <p class="pad5"><a href="http://github.com/nakulbende" target="_blank">
+                    GitHub</a></p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!--div class="one_third">
+      <h6 class="title">Lorem ipsum dolor</h6>      <ul class="nospace clear ftgal">        <li class="one_third first"><a href="#"><img class="rounded" src="images/demo/100x100.gif" alt=""></a></li>        <li class="one_third"><a href="#"><img class="rounded" src="images/demo/100x100.gif" alt=""></a></li>        <li class="one_third"><a href="#"><img class="rounded" src="images/demo/100x100.gif" alt=""></a></li>        <li class="one_third first"><a href="#"><img class="rounded" src="images/demo/100x100.gif" alt=""></a></li>        <li class="one_third"><a href="#"><img class="rounded" src="images/demo/100x100.gif" alt=""></a></li>        <li class="one_third"><a href="#"><img class="rounded" src="images/demo/100x100.gif" alt=""></a></li>      </ul>    </div-->
+      <!-- ################################################################################################ -->
+    </footer>
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <!-- ################################################################################################ -->
+    <div class="wrapper row5">
+      <div id="copyright" class="clear">
+        <!-- ################################################################################################ -->
+        <p class="fl_left">Copyright © 2018 - All Rights Reserved - <a href="nakulbende.com">nakulbende.com</a></p>
+        <p class="fl_right">Template by <a target="_blank" href="http://www.os-templates.com/"
+
+            title="Free Website Templates">OS Templates</a></p>
+        <!-- ################################################################################################ -->
+      </div>
+    </div>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-70305507-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>
