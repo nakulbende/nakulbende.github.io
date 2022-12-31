@@ -8,9 +8,10 @@ import random
 
 # current directory
 dirname = os.path.dirname(__file__)
+dirname = dirname + '/'
 print("Current directory: ", dirname)
 
-path = '/assets/img'
+path = 'assets/img'
 path = dirname + path
 #path = '/content'
 
@@ -27,7 +28,7 @@ for file_name in files:
                   <div class=\"swiper-slide\">
                     <img src=\"%s\" alt=\"\">
                   </div>
-  """%(file_name)
+  """%(file_name[len(dirname):])
   photo_string = "\n".join([photo_string, temp_string])
 
 with open(html_file[0], 'r') as f: 
