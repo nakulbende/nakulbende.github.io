@@ -1,0 +1,6 @@
+User-agent: *
+Crawl-delay: 60
+Disallow: /forms/
+Disallow: /forms/*.jpg
+Disallow: /forms/*.png
+Sitemap: http://www.nakulbende.com/sitemap.xml
