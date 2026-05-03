@@ -9,12 +9,36 @@ ROOT_DIR = "."
 SITE_URL = "https://nakulbende.github.io/"
 FONT_URL = "https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600&family=Poppins:ital,wght@0,300;0,400;0,500;0,600&family=Raleway:ital,wght@0,300;0,400;0,500;0,600&display=swap"
 
-def inject_seo(soup, file_path, is_index=False):
-    """Injects JSON-LD, Meta Tags, Open Graph, and Accessibility hints."""
-    modified = False
-    page_title = "Nakul Bende | Staff Materials Engineer" if is_index else f"Project | Nakul Bende"
+def clean_head_section(soup):
+    """
+    De-duplicates viewport, charset, and messy font links.
+    Ensures the head is tidy before we inject new SEO data.
+    """
+    if not soup.head:
+        return
+
+    # 1. De-duplicate Viewport and Charset
+    viewports = soup.find_all('meta', attrs={'name': 'viewport'})
+    for tag in viewports[1:]:  # Keep only the first one
+        tag.decompose()
     
-    # 1. Update Title Tag
+    charsets = soup.find_all('meta', charset=True)
+    for tag in charsets[1:]:
+        tag.decompose()
+
+    # 2. Remove messy or redundant Google Font links
+    for link in soup.find_all('link', href=True):
+        href = link['href']
+        if "fonts.googleapis.com" in href or "fonts.gstatic.com" in href:
+            link.decompose()
+
+def inject_seo(soup, file_path, is_index=False):
+    """Finds and updates SEO tags instead of appending duplicates."""
+    modified = False
+    page_title = "Nakul Bende" if is_index else f"Project | Nakul Bende"
+    desc_content = "Fusion Materials Scientist: Leveraging engineering leadership and background in polymers, data-driven formulation + material qualification, and scientific visualization for humanity's most critical challenges"
+    
+    # Update Title
     if soup.title:
         if soup.title.string != page_title:
             soup.title.string = page_title
@@ -22,31 +46,33 @@ def inject_seo(soup, file_path, is_index=False):
     else:
         new_title = soup.new_tag('title')
         new_title.string = page_title
-        soup.head.append(new_title)
+        soup.head.insert(0, new_title)
         modified = True
 
-    # 2. Meta Description & Open Graph (Social Media)
-    desc_content = "Fusion Materials Scientist engineering resilient solutions for humanity's most critical challenges. Expert in polymers, data-driven formulation + material qualification, and scientific visualization."
-    
-    meta_map = {
-        "description": desc_content,
-        "og:title": page_title,
-        "og:description": desc_content,
-        "og:url": SITE_URL,
-        "og:type": "website",
-        "og:image": f"{SITE_URL}assets/img/profile-img.jpg",
-        "twitter:card": "summary_large_image"
-    }
+    # Meta tags to manage (Type, Attribute Name, Attribute Value, Content)
+    meta_configs = [
+        ("name", "description", desc_content),
+        ("property", "og:title", page_title),
+        ("property", "og:description", desc_content),
+        ("property", "og:url", SITE_URL),
+        ("property", "og:type", "website"),
+        ("property", "og:image", f"{SITE_URL}assets/img/profile-img.jpg"),
+        ("name", "twitter:card", "summary_large_image")
+    ]
 
-    for name, content in meta_map.items():
-        attr = "property" if name.startswith("og:") else "name"
-        if not soup.find('meta', attrs={attr: name}):
-            tag = soup.new_tag('meta', content=content)
-            tag[attr] = name
-            soup.head.append(tag)
+    for attr, val, content in meta_configs:
+        tag = soup.find('meta', attrs={attr: val})
+        if tag:
+            if tag.get('content') != content:
+                tag['content'] = content
+                modified = True
+        else:
+            new_meta = soup.new_tag('meta', content=content)
+            new_meta[attr] = val
+            soup.head.append(new_meta)
             modified = True
 
-    # 3. JSON-LD Schema (The "Hard Tech" version)
+    # Schema JSON-LD (Replace entirely to ensure it's fresh)
     if is_index:
         schema = {
             "@context": "https://schema.org",
@@ -79,10 +105,9 @@ def inject_seo(soup, file_path, is_index=False):
                 "http://www.nakulbende.com"
             ]
         }
+        for s in soup.find_all('script', type='application/ld+json'):
+            s.decompose()
         
-        # Inject Schema
-        for old_s in soup.find_all('script', type='application/ld+json'):
-            old_s.decompose()
         schema_tag = soup.new_tag('script', type='application/ld+json')
         schema_tag.string = json.dumps(schema, indent=2)
         soup.head.append(schema_tag)
@@ -94,52 +119,45 @@ def optimize_html(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         soup = BeautifulSoup(f.read(), 'lxml')
     
+    # 1. Cleanup existing mess first
+    clean_head_section(soup)
+    
     is_index = os.path.basename(file_path) == "index.html"
     modified = inject_seo(soup, file_path, is_index)
 
-    # 4. Accessibility: Ensure Navigation role and Image Alts
-    nav_menu = soup.find('nav') or soup.find('ul', id='navbar')
-    if nav_menu and not nav_menu.has_attr('role'):
-        nav_menu['role'] = 'navigation'
-        modified = True
+    # 2. Re-inject Clean Fonts
+    font_link = soup.new_tag('link', rel='stylesheet', href=FONT_URL)
+    preconnect = soup.new_tag('link', rel='preconnect', href='https://fonts.gstatic.com', crossorigin='')
+    dns_hint = soup.new_tag('link', rel='dns-prefetch', href='https://fonts.gstatic.com')
+    soup.head.append(dns_hint)
+    soup.head.append(preconnect)
+    soup.head.append(font_link)
 
+    # 3. Accessibility & Image Fluidity
     for img in soup.find_all('img'):
         if not img.has_attr('alt') or img['alt'] == "":
             img['alt'] = "Nakul Bende Portfolio Image"
-            modified = True
         img['loading'] = 'lazy'
         classes = img.get('class', [])
         if 'img-fluid' not in classes:
             classes.append('img-fluid')
             img['class'] = classes
-        modified = True
 
-    # 5. Performance: Scripts & Fonts
+    # 4. Defer Scripts
     for script in soup.find_all('script', src=True):
-        if not script.has_attr('defer'):
+        if not script.has_attr('defer') and "googletagmanager" not in script['src']:
             script['defer'] = None
-            modified = True
 
-    # Preconnect for Fonts
-    if not soup.find('link', rel="dns-prefetch", href="https://fonts.gstatic.com"):
-        hint = soup.new_tag('link', rel="dns-prefetch", href="https://fonts.gstatic.com")
-        soup.head.append(hint)
-        modified = True
-
-    if modified:
-        with open(file_path, 'w', encoding='utf-8') as f:
-            f.write(soup.prettify())
-        print(f"✅ Full Optimization & SEO: {file_path}")
+    # Write back
+    with open(file_path, 'w', encoding='utf-8') as f:
+        f.write(soup.prettify())
+    print(f"✨ Cleaned & Optimized: {file_path}")
 
 def update_swiper_blocks(directory):
-    """Automatically finds images and rebuilds the Swiper slider for project pages."""
     img_path = os.path.join(directory, 'assets/img')
-    if not os.path.exists(img_path):
-        return
-
+    if not os.path.exists(img_path): return
     files = glob.glob(img_path + '/*.png') + glob.glob(img_path + '/*.jpg')
     if not files: return
-    
     random.shuffle(files)
     html_files = glob.glob(os.path.join(directory, '*.html'))
     if not html_files: return
@@ -148,43 +166,31 @@ def update_swiper_blocks(directory):
     photo_string = ""
     for f in files:
         rel_path = os.path.relpath(f, directory)
-        photo_string += f"""
-                  <div class="swiper-slide">
-                    <img src="{rel_path}" class="img-fluid" alt="Portfolio Image" loading="lazy">
-                  </div>"""
+        photo_string += f'\n<div class="swiper-slide"><img src="{rel_path}" class="img-fluid" alt="Portfolio Image" loading="lazy"></div>'
 
     with open(target_html, 'r', encoding='utf-8') as f:
-        html_content = f.read()
+        content = f.read()
 
-    start_marker = '<div class="swiper-wrapper align-items-center">'
-    end_marker = '<div class="swiper-pagination"></div>'
-    start_idx = html_content.find(start_marker)
-    end_idx = html_content.find(end_marker)
+    start_m, end_m = '<div class="swiper-wrapper align-items-center">', '<div class="swiper-pagination"></div>'
+    s_idx, e_idx = content.find(start_m), content.find(end_m)
 
-    if start_idx != -1 and end_idx != -1:
-        final_html = (
-            html_content[:start_idx + len(start_marker)] + 
-            photo_string + 
-            "\n              </div>\n              " + 
-            html_content[end_idx:]
-        )
+    if s_idx != -1 and e_idx != -1:
+        final = content[:s_idx + len(start_m)] + photo_string + "\n</div>\n" + content[e_idx:]
         with open(target_html, 'w', encoding='utf-8') as f:
-            f.write(final_html)
-        print(f"📸 Swiper updated: {target_html}")
+            f.write(final)
+        print(f"📸 Swiper Rebuilt: {target_html}")
 
 if __name__ == "__main__":
-    print("🚀 Starting Unified Site Management...")
-    # Walk folders for Swiper updates
+    # First rebuild swipers
     for subdir, dirs, files in os.walk(ROOT_DIR):
         if any(x in subdir for x in ['venv', '.git', 'assets']): continue
-        if 'assets' in dirs:
-            update_swiper_blocks(subdir)
+        if 'assets' in dirs: update_swiper_blocks(subdir)
             
-    # Global optimization and SEO injection
+    # Then clean and optimize everything
     for subdir, dirs, files in os.walk(ROOT_DIR):
         if any(x in subdir for x in ['venv', '.git']): continue
         for file in files:
             if file.endswith(".html"):
                 optimize_html(os.path.join(subdir, file))
 
-    print("\n--- Site is now fast, mobile-friendly, and SEO-ready! ---")
+    print("\n✅ All files have been scrubbed of duplicates and optimized!")
