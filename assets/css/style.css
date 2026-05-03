@@ -116,13 +116,20 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: 300px;
 }
 
+@/* Mobile Navigation & Layout Adjustments */
 @media (max-width: 1199px) {
   #header {
-    left: -300px;
+    left: -300px; /* Hides the sidebar off-screen */
+    transition: all 0.5s;
+  }
+  
+  /* When the hamburger menu is clicked, JS will add a class to body to slide it back in */
+  .mobile-nav-active #header {
+    left: 0;
   }
 
   #main {
-    margin-left: 0;
+    margin-left: 0; /* Lets the main content fill the screen */
   }
 }
 /*--------------------------------------------------------------
