@@ -259,33 +259,18 @@ def update_swiper_blocks_in_soup(soup, directory):
 
 def update_job_tagline(soup):
     """
-    Finds the job tagline in the header, standardizes its HTML format 
-    to match index.html, and updates it with JOB_TAGLINE.
+    Updates the text of the job tagline in the header across all pages.
+    Assumes the structural standardization has already occurred.
     """
     header = soup.find("header", id="header")
     if not header:
         return
     
-    # 1. Locate the existing tagline (either an <h6> or <p class="tagline">)
-    h6_tag = header.find("h6")
     tagline_p = header.find("p", class_="tagline")
-    
-    existing_tag = h6_tag if h6_tag else tagline_p
-    
-    if existing_tag:
-        # Extract the correct relative href to index.html (e.g., "../../index.html")
-        a_tag = existing_tag.find("a")
-        href_val = a_tag["href"] if (a_tag and a_tag.has_attr("href")) else "index.html"
-        
-        # 2. Build the new standardized tag matching index.html
-        new_p = soup.new_tag("p", attrs={"class": "tagline text-light mt-2 text-center"})
-        new_a = soup.new_tag("a", href=href_val, attrs={"class": "text-white text-decoration-none"})
-        new_a.string = JOB_TAGLINE
-        
-        new_p.append(new_a)
-        
-        # 3. Replace the old existing tag with the new standardized tag
-        existing_tag.replace_with(new_p)
+    if tagline_p:
+        a_tag = tagline_p.find("a")
+        if a_tag:
+            a_tag.string = JOB_TAGLINE
 
 def optimize_dom(soup, file_path):
     """
@@ -294,7 +279,6 @@ def optimize_dom(soup, file_path):
     2. Enforces responsive image classes (img-fluid).
     3. Handles lazy vs eager loading to improve PageSpeed scores.
     4. Secures external target="_blank" links with noopener tags.
-    5. Fixes common typos programmatically.
     """
     path_lower = file_path.lower()
     alt_base = "Nakul Bende Portfolio Image"
@@ -334,10 +318,6 @@ def optimize_dom(soup, file_path):
     # Fix target blanks
     for a in soup.find_all('a', target="_blank"):
         a['rel'] = "noopener noreferrer"
-
-    # Fix specific Typo safely
-    for text_node in soup.find_all(string=lambda t: t and "Equitorial" in t):
-        text_node.replace_with(text_node.replace("Equitorial", "Equatorial"))
 
 def optimize_html(file_path):
     """

@@ -966,3 +966,133 @@ section {
     padding-right: 20px 15px;
   }
 }
+
+/* ========================================================
+   AUTO-DARK MODE OVERRIDES
+   Automatically triggers based on user's OS settings
+   ======================================================== */
+
+/* Enable native scrollbar dark mode */
+:root {
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* 1. Base Backgrounds */
+  body, #main, .section-bg, .portfolio-details {
+    background-color: #0f172a !important; 
+    color: #e2e8f0 !important;
+  }
+
+  /* 2. Base Typography & Links */
+  h1, h2, h3, h4, h5, h6, .section-title h2, .resume-title {
+    color: #f8fafc !important;
+  }
+  p, li, .resume-item p, .resume-item ul li, .count-box p {
+    color: #cbd5e1 !important;
+  }
+  
+  /* Fix nested list text and icons (About/Skills section chevrons) */
+  ul li i, ul li span, ul li strong, .about ul li {
+    color: #cbd5e1 !important;
+  }
+
+  /* Fix Hyperlinks */
+  a {
+    color: #60a5fa !important; /* Bright, legible blue */
+  }
+  a:hover {
+    color: #93c5fd !important; /* Lighter blue on hover */
+  }
+
+  /* 3. Portfolio Internal Pages (Breadcrumbs & Info Box) */
+  .breadcrumbs {
+    background-color: #1e293b !important;
+  }
+  .breadcrumbs h2, .breadcrumbs ol li, .breadcrumbs ol li a {
+    color: #f8fafc !important;
+  }
+  .portfolio-info {
+    background-color: #1e293b !important;
+    box-shadow: 0px 0 30px rgba(0, 0, 0, 0.5) !important;
+  }
+  .portfolio-info ul li {
+    color: #e2e8f0 !important;
+  }
+
+  /* 4. Index Page: Ticker Numbers & Icons */
+  .count-box span {
+    color: #f8fafc !important;
+  }
+  .count-box i {
+    color: #3b82f6 !important;
+  }
+  
+  /* Bulletproof Portfolio Filter Pillboxes (All, DIY, Photography, Science) */
+  #portfolio-flters, 
+  .portfolio-flters {
+    background: transparent !important; /* Clears white background on the container */
+  }
+
+  #portfolio-flters li, 
+  .portfolio-flters li,
+  #portfolio-flters li span,
+  .portfolio-flters li span {
+    background: #1e293b !important; /* Dark pill background */
+    color: #cbd5e1 !important; /* Light text */
+    border-color: #334155 !important; /* Darkens the hardcoded border */
+  }
+
+  #portfolio-flters li:hover, 
+  #portfolio-flters li.filter-active,
+  #portfolio-flters li.filter-active span,
+  .portfolio-flters li:hover,
+  .portfolio-flters li.filter-active,
+  .portfolio-flters li.filter-active span {
+    background: #3b82f6 !important; /* Bright blue when selected */
+    color: #ffffff !important; /* Bright white text */
+    border-color: #3b82f6 !important;
+  }
+
+  /* 5. Resume Page: Year Badges & Timeline */
+  .resume-item h5 {
+    background: #1e293b !important;
+    color: #f8fafc !important;
+  }
+  .resume-item::before {
+    background: #0f172a !important;
+    border-color: #3b82f6 !important;
+  }
+  
+  /* 6. Portfolio Grid Cards & Hover Overlays */
+  .portfolio-wrap {
+    background: #1e293b !important;
+  }
+  
+  /* Forces text and icons inside the hover overlay to be bright white */
+  .portfolio-wrap .portfolio-info h4,
+  .portfolio-wrap .portfolio-info p,
+  .portfolio-wrap .portfolio-links a,
+  .portfolio-wrap .portfolio-links a i {
+    color: #ffffff !important; 
+  }
+
+  /* Optional: Ensures the hover overlay itself is dark enough if the blue is blinding */
+  .portfolio-wrap::before {
+    background: rgba(15, 23, 42, 0.85) !important; 
+  }
+
+  /* 7. Contact Form Fixes */
+  form.bg-white, .php-email-form {
+    background-color: #1e293b !important;
+    color: #f8fafc !important;
+  }
+  .form-control {
+    background-color: #0f172a !important;
+    border-color: #334155 !important;
+    color: #e2e8f0 !important;
+  }
+  .form-control::placeholder {
+    color: #64748b !important;
+  }
+}
