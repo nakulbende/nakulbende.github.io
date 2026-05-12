@@ -1,6 +1,7 @@
 User-agent: *
-Crawl-delay: 60
+Allow: /
 Disallow: /forms/
-Disallow: /assets/*.jpg
-Disallow: /assets/*.png
-Sitemap: http://www.nakulbende.com/sitemap.xml
+Disallow: /portfolio/TEMPLATE/
+Disallow: /assets/vendor/
+
+Sitemap: https://nakulbende.github.io/sitemap.xml

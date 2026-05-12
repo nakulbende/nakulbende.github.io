@@ -116,7 +116,7 @@ h1, h2, h3, h4, h5, h6 {
   margin-left: 300px;
 }
 
-@/* Mobile Navigation & Layout Adjustments */
+/* Mobile Navigation & Layout Adjustments */
 @media (max-width: 1199px) {
   #header {
     left: -300px; /* Hides the sidebar off-screen */
