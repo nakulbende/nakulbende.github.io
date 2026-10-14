@@ -1,0 +1,89 @@
+{
+    "global": {
+        "job_tagline": "Fusion Materials Engineer @ CFS",
+        "site_url": "https://nakulbende.github.io",
+        "profile_image_path": "/assets/img/profile-img.jpg"
+    },
+    "pages": {
+        "index.html": {
+            "title": "Nakul Bende, PhD | Fusion Materials Engineer & Polymer Scientist",
+            "description": "Portfolio of Nakul Bende, PhD \u2014 fusion materials engineer, polymer scientist, and multidisciplinary leader specializing in advanced materials, additive manufacturing and scientific visualization.",
+            "alt_keyword": "Nakul Bende Portfolio Image"
+        },
+        "portfolio/hydrogel/hydrogel.html": {
+            "title": "DLP Micro-Lithography Research | Nakul Bende",
+            "description": "Research in hydrogel micro-lithography, programmable materials, and photopolymer fabrication systems.",
+            "alt_keyword": "Hydrogel micro-lithography experiment"
+        },
+        "portfolio/fireplace/fireplace.html": {
+            "title": "Hogwarts Fireplace Installation | Nakul Bende",
+            "description": "Custom 3D printed Hogwarts castle fireplace installation and home DIY project.",
+            "alt_keyword": "3D printed Hogwarts fireplace installation"
+        },
+        "portfolio/photo/photography.html": {
+            "title": "Photography Portfolio | Nakul Bende",
+            "description": "Landscape, travel, astrophotography, and experimental photography by Nakul Bende.",
+            "alt_keyword": "Nakul Bende Portfolio Image"
+        },
+        "portfolio/cutthroatkitcken/cutthroatkitcken.html": {
+            "title": "Cutthroat Kitchen Data Visualization | Nakul Bende",
+            "description": "Data mining and visualization of winnings, spending, and contestant strategies in the TV show Cutthroat Kitchen.",
+            "alt_keyword": "Data visualization of Cutthroat Kitchen TV show"
+        },
+        "portfolio/sarpass/sarpass.html": {
+            "title": "Sarpass Himalayas Trek | Nakul Bende",
+            "description": "High-altitude landscape photography from a 14,000 ft trek in the Himalayas.",
+            "alt_keyword": "Sarpass Himalayas mountain landscape photography"
+        },
+        "portfolio/bhutan/bhutan.html": {
+            "title": "Bhutan Travel Photography | Nakul Bende",
+            "description": "Travel photography and cultural exploration from the Kingdom of Bhutan (2013).",
+            "alt_keyword": "Bhutan travel and cultural photography"
+        },
+        "portfolio/bendyshells/bendyshells.html": {
+            "title": "Programming Shell Instabilities | Nakul Bende",
+            "description": "Research into shell mechanics, instability programming, soft matter physics, and responsive polymer structures.",
+            "alt_keyword": "Programmable shell instability experiment"
+        },
+        "portfolio/maked/maked.html": {
+            "title": "Maked | Nakul Bende",
+            "description": "Portfolio page for Maked.",
+            "alt_keyword": "Nakul Bende Portfolio Image"
+        },
+        "portfolio/hawaii/hawaii.html": {
+            "title": "Hawaii Landscape Photography | Nakul Bende",
+            "description": "Landscape and nature photography from the Big Island, Hawaii (2021).",
+            "alt_keyword": "Big Island Hawaii landscape photography"
+        },
+        "portfolio/nes/nes.html": {
+            "title": "RaspberryPi NES Emulator | Nakul Bende",
+            "description": "DIY 3D printed Nintendo Entertainment System (NES) emulator and media server powered by Raspberry Pi, RetroPie, and Kodi.",
+            "alt_keyword": "3D printed Raspberry Pi NES emulator and media center"
+        },
+        "portfolio/eufy/eufy.html": {
+            "title": "Smartify Vacuum with ESP32 | Nakul Bende",
+            "description": "Hardware modification using an ESP32 to convert an unconnected robot vacuum cleaner into a smart home integrated device.",
+            "alt_keyword": "ESP32 smart vacuum hardware modification"
+        },
+        "portfolio/outreach/outreach.html": {
+            "title": "STEAM Outreach & Education | Nakul Bende",
+            "description": "A decade of STEAM outreach, organizing educational modules in schools, museums, and universities.",
+            "alt_keyword": "STEM outreach and science education activities"
+        },
+        "portfolio/astrotracker/astrotracker.html": {
+            "title": "DIY Equatorial Astrotracker | Nakul Bende",
+            "description": "Custom-built equatorial tracking mount for astrophotography and long-exposure night sky imaging.",
+            "alt_keyword": "DIY equatorial astrotracker mount"
+        },
+        "portfolio/commute/commute.html": {
+            "title": "Commute Analytics Bot | Nakul Bende",
+            "description": "Python-based commute logging, analytics, visualization, and optimization system.",
+            "alt_keyword": "Commute analytics and visualization dashboard"
+        },
+        "portfolio/kerala/kerala.html": {
+            "title": "Kerala Travel Photography | Nakul Bende",
+            "description": "Travel photography from God's Own Country: Kerala, India (2015 and 2019).",
+            "alt_keyword": "Kerala India travel photography"
+        }
+    }
+}

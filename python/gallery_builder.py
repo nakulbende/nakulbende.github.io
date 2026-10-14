@@ -7,7 +7,15 @@ from flask import Flask, render_template_string, request, jsonify, send_from_dir
 
 app = Flask(__name__)
 
-# Global variables to be set after user selection
+# =========================================================
+# PATH CONFIGURATION
+# SCRIPT_DIR locates this file inside the 'python/' folder.
+# ROOT_DIR navigates one level up to the website root directory.
+# =========================================================
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.dirname(SCRIPT_DIR)
+
+# Global runtime variables set upon user folder selection
 WORK_DIR = ""
 SRC_DIR = ""
 LARGE_DIR = ""
@@ -16,9 +24,10 @@ JSON_FILE = ""
 TARGET_HTML = ""
 
 def setup_paths(selected_folder):
+    """Dynamically establishes target directories and file paths based on portfolio selection."""
     global WORK_DIR, SRC_DIR, LARGE_DIR, THUMB_DIR, JSON_FILE, TARGET_HTML
     
-    WORK_DIR = os.path.join(os.getcwd(), 'portfolio', selected_folder)
+    WORK_DIR = os.path.join(ROOT_DIR, 'portfolio', selected_folder)
     SRC_DIR = os.path.join(WORK_DIR, 'assets', 'img')
     LARGE_DIR = os.path.join(SRC_DIR, 'large')
     THUMB_DIR = os.path.join(SRC_DIR, 'thumbs')
@@ -27,7 +36,7 @@ def setup_paths(selected_folder):
     for d in [SRC_DIR, LARGE_DIR, THUMB_DIR]:
         os.makedirs(d, exist_ok=True)
         
-    # Auto-find the HTML file in this directory
+    # Auto-detect the project HTML file inside the target folder
     html_files = glob.glob(os.path.join(WORK_DIR, "*.html"))
     if html_files:
         TARGET_HTML = html_files[0]
@@ -36,6 +45,7 @@ def setup_paths(selected_folder):
         exit(1)
 
 def load_data():
+    """Loads gallery state from JSON or initializes a default structure."""
     if os.path.exists(JSON_FILE):
         with open(JSON_FILE, 'r', encoding='utf-8') as f:
             data = json.load(f)
@@ -45,10 +55,12 @@ def load_data():
     return {"settings": {"thumbnails": True, "transition": "lg-slide"}, "images": []}
 
 def save_data(data):
+    """Saves current gallery configuration state to JSON."""
     with open(JSON_FILE, 'w', encoding='utf-8') as f:
         json.dump(data, f, indent=4)
 
 def process_new_images():
+    """Scans for raw photos, downsamples them into WebP high-res and thumbnail assets."""
     data = load_data()
     existing_originals = {item['original_name'] for item in data['images']}
     
@@ -72,12 +84,14 @@ def process_new_images():
             with Image.open(file_path) as img:
                 img = ImageOps.exif_transpose(img)
                 
+                # High-res WebP version (Max 1600px)
                 img_large = img.copy()
                 img_large.thumbnail((1600, 1600), Image.Resampling.LANCZOS)
                 large_path = os.path.join(LARGE_DIR, new_filename)
                 img_large.convert('RGB').save(large_path, 'WEBP', quality=82)
                 width, height = img_large.size
                 
+                # Thumbnail WebP version (Max 300px)
                 img_thumb = img.copy()
                 img_thumb.thumbnail((300, 300), Image.Resampling.LANCZOS)
                 thumb_path = os.path.join(THUMB_DIR, new_filename)
@@ -108,6 +122,7 @@ def process_new_images():
             print("Original files deleted.")
 
 def inject_html(data):
+    """Injects LightGallery markup and CSS grid structure safely into HTML placeholders."""
     MAX_VISIBLE = 12 
     
     html_content = """
@@ -180,7 +195,6 @@ def index():
 
 @app.route('/assets/img/<path:filename>')
 def serve_photos(filename):
-    # Serve dynamically from whichever portfolio folder was selected
     return send_from_directory(SRC_DIR, filename)
 
 @app.route('/save', methods=['POST'])
@@ -190,8 +204,7 @@ def save():
     inject_html(updated_data)
     return jsonify({"status": "success", "message": f"Updated & saved to {os.path.basename(TARGET_HTML)}!"})
 
-# --- Local Dashboard UI ---
-# (Using the exact same UI as before)
+# --- Local Dashboard UI Template ---
 HTML_TEMPLATE = """
 <!DOCTYPE html>
 <html>
@@ -288,8 +301,7 @@ HTML_TEMPLATE = """
 """
 
 if __name__ == '__main__':
-    # 1. Scan for portfolio folders
-    portfolio_dir = os.path.join(os.getcwd(), 'portfolio')
+    portfolio_dir = os.path.join(ROOT_DIR, 'portfolio')
     if not os.path.exists(portfolio_dir):
         print(f"Error: Could not find 'portfolio' directory at {portfolio_dir}")
         exit(1)
@@ -311,12 +323,10 @@ if __name__ == '__main__':
         print("Invalid selection.")
         exit(1)
         
-    # 2. Setup paths and process images
     setup_paths(selected_folder)
     print(f"\nTargeting: {TARGET_HTML}")
     print("Checking for new images...")
     process_new_images()
     
-    # 3. Run UI
     print("\nOpening Dashboard... Navigate to http://127.0.0.1:5000 in your browser.")
     app.run(debug=False, port=5000)
