@@ -1,0 +1,896 @@
+{
+    "settings": {
+        "thumbnails": true,
+        "transition": "lg-fade"
+    },
+    "images": [
+        {
+            "original_name": "92.png",
+            "filename": "92.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": "Blue angles @ Cleveland"
+        },
+        {
+            "original_name": "47.png",
+            "filename": "47.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "18.png",
+            "filename": "18.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "Bheembaithka prehistoric rock paints",
+            "caption": "Rock paintings in India from 10,000 BCE"
+        },
+        {
+            "original_name": "33.png",
+            "filename": "33.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "Yosemite",
+            "caption": ""
+        },
+        {
+            "original_name": "19.jpg",
+            "filename": "19.webp",
+            "width": 1000,
+            "height": 662,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "33.jpg",
+            "filename": "33.webp",
+            "width": 1000,
+            "height": 662,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "40.png",
+            "filename": "40.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "11.jpg",
+            "filename": "11.webp",
+            "width": 1000,
+            "height": 662,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "32.jpg",
+            "filename": "32.webp",
+            "width": 1000,
+            "height": 662,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "48.png",
+            "filename": "48.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "15.png",
+            "filename": "15.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "83.png",
+            "filename": "83.webp",
+            "width": 1133,
+            "height": 750,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "27.png",
+            "filename": "27.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "10.png",
+            "filename": "10.webp",
+            "width": 1545,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "102.png",
+            "filename": "102.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "35.jpg",
+            "filename": "35.webp",
+            "width": 1000,
+            "height": 662,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "23.png",
+            "filename": "23.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "45.png",
+            "filename": "45.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "39.jpg",
+            "filename": "39.webp",
+            "width": 1000,
+            "height": 662,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "261.png",
+            "filename": "261.webp",
+            "width": 660,
+            "height": 437,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "0.jpg",
+            "filename": "0.webp",
+            "width": 1000,
+            "height": 662,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "32.png",
+            "filename": "32.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "49.png",
+            "filename": "49.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "70.png",
+            "filename": "70.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "81.png",
+            "filename": "81.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "13.jpg",
+            "filename": "13.webp",
+            "width": 1000,
+            "height": 662,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "36.jpg",
+            "filename": "36.webp",
+            "width": 1000,
+            "height": 662,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "28.jpg",
+            "filename": "28.webp",
+            "width": 1000,
+            "height": 662,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "67.png",
+            "filename": "67.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "06.png",
+            "filename": "06.webp",
+            "width": 1114,
+            "height": 738,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "91.png",
+            "filename": "91.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "8.jpg",
+            "filename": "8.webp",
+            "width": 1000,
+            "height": 662,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "97.png",
+            "filename": "97.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "19.png",
+            "filename": "19.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "68.png",
+            "filename": "68.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "26.png",
+            "filename": "26.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "47.jpg",
+            "filename": "47.webp",
+            "width": 1000,
+            "height": 662,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "100.png",
+            "filename": "100.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "88.png",
+            "filename": "88.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "99.png",
+            "filename": "99.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "35.png",
+            "filename": "35.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "40.jpg",
+            "filename": "40.webp",
+            "width": 1000,
+            "height": 662,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "16.png",
+            "filename": "16.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "27.jpg",
+            "filename": "27.webp",
+            "width": 1000,
+            "height": 662,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "09.png",
+            "filename": "09.webp",
+            "width": 1545,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "60.png",
+            "filename": "60.webp",
+            "width": 1545,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "03.png",
+            "filename": "03.webp",
+            "width": 1366,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "69.png",
+            "filename": "69.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "260.png",
+            "filename": "260.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "85.png",
+            "filename": "85.webp",
+            "width": 1545,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "04.png",
+            "filename": "04.webp",
+            "width": 1366,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "96.png",
+            "filename": "96.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "02.png",
+            "filename": "02.webp",
+            "width": 1366,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "38.jpg",
+            "filename": "38.webp",
+            "width": 1000,
+            "height": 662,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "46.png",
+            "filename": "46.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "34.png",
+            "filename": "34.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "86.png",
+            "filename": "86.webp",
+            "width": 1545,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "37.jpg",
+            "filename": "37.webp",
+            "width": 1000,
+            "height": 662,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "90.png",
+            "filename": "90.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "21.jpg",
+            "filename": "21.webp",
+            "width": 1000,
+            "height": 662,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "15.jpg",
+            "filename": "15.webp",
+            "width": 1000,
+            "height": 662,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "103.png",
+            "filename": "103.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "00.png",
+            "filename": "00.webp",
+            "width": 1500,
+            "height": 665,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "109.png",
+            "filename": "109.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "51.jpg",
+            "filename": "51.webp",
+            "width": 1000,
+            "height": 662,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "08.png",
+            "filename": "08.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "28.png",
+            "filename": "28.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "66.png",
+            "filename": "66.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "107.png",
+            "filename": "107.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "01.png",
+            "filename": "01.webp",
+            "width": 1366,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "72.png",
+            "filename": "72.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "64.png",
+            "filename": "64.webp",
+            "width": 1545,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "73.png",
+            "filename": "73.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "105.png",
+            "filename": "105.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "87.png",
+            "filename": "87.webp",
+            "width": 1545,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "262.png",
+            "filename": "262.webp",
+            "width": 660,
+            "height": 437,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "71.png",
+            "filename": "71.webp",
+            "width": 660,
+            "height": 437,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "110.png",
+            "filename": "110.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "263.png",
+            "filename": "263.webp",
+            "width": 660,
+            "height": 437,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "94.png",
+            "filename": "94.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "13.png",
+            "filename": "13.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "61.png",
+            "filename": "61.webp",
+            "width": 1545,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "24.png",
+            "filename": "24.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "93.png",
+            "filename": "93.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "98.png",
+            "filename": "98.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "106.png",
+            "filename": "106.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "38.png",
+            "filename": "38.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "20.png",
+            "filename": "20.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "29.png",
+            "filename": "29.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "22.png",
+            "filename": "22.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "108.png",
+            "filename": "108.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "25.png",
+            "filename": "25.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "63.png",
+            "filename": "63.webp",
+            "width": 1545,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "07.png",
+            "filename": "07.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "112.png",
+            "filename": "112.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "39.png",
+            "filename": "39.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "21.png",
+            "filename": "21.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "14.png",
+            "filename": "14.webp",
+            "width": 660,
+            "height": 437,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "89.png",
+            "filename": "89.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "95.png",
+            "filename": "95.webp",
+            "width": 1547,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "65.png",
+            "filename": "65.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "05.png",
+            "filename": "05.webp",
+            "width": 1366,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "46.jpg",
+            "filename": "46.webp",
+            "width": 1000,
+            "height": 662,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "17.png",
+            "filename": "17.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "6.jpg",
+            "filename": "6.webp",
+            "width": 1000,
+            "height": 662,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "59.png",
+            "filename": "59.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "62.png",
+            "filename": "62.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "84.png",
+            "filename": "84.webp",
+            "width": 1545,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "104.png",
+            "filename": "104.webp",
+            "width": 1546,
+            "height": 1024,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "43.jpg",
+            "filename": "43.webp",
+            "width": 1000,
+            "height": 662,
+            "title": "",
+            "caption": ""
+        },
+        {
+            "original_name": "12.jpg",
+            "filename": "12.webp",
+            "width": 1000,
+            "height": 662,
+            "title": "",
+            "caption": ""
+        }
+    ]
+}
