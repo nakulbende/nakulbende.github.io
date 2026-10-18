@@ -10,15 +10,8 @@
             "width": 1600,
             "height": 1200,
             "title": "Floo network!",
-            "caption": "Some photos from one of the biggest print I made - hogwarts castle in extreme detail, installed in an unused fireplace as a diorama"
-        },
-        {
-            "original_name": "10.png",
-            "filename": "10.webp",
-            "width": 1600,
-            "height": 1200,
-            "title": "Getting the fireplace base ready",
-            "caption": ""
+            "caption": "Some photos from one of the biggest print I made - hogwarts castle in extreme detail, installed in an unused fireplace as a diorama",
+            "exclude": false
         },
         {
             "original_name": "001.png",
@@ -26,7 +19,8 @@
             "width": 1600,
             "height": 1200,
             "title": "6 individual full area Form 3L builds ready, gluing with joint compound",
-            "caption": ""
+            "caption": "",
+            "exclude": false
         },
         {
             "original_name": "04.png",
@@ -34,7 +28,8 @@
             "width": 1600,
             "height": 1200,
             "title": "Gluing up!",
-            "caption": ""
+            "caption": "",
+            "exclude": false
         },
         {
             "original_name": "06.png",
@@ -42,7 +37,8 @@
             "width": 1600,
             "height": 1200,
             "title": "Great hall corridor",
-            "caption": ""
+            "caption": "",
+            "exclude": false
         },
         {
             "original_name": "00.png",
@@ -50,7 +46,8 @@
             "width": 1600,
             "height": 1200,
             "title": "Final steps of combining 6 full sized Form 3L prints",
-            "caption": ""
+            "caption": "",
+            "exclude": false
         },
         {
             "original_name": "11.png",
@@ -58,7 +55,8 @@
             "width": 1600,
             "height": 1200,
             "title": "Ready as one peice!",
-            "caption": ""
+            "caption": "",
+            "exclude": false
         },
         {
             "original_name": "09.png",
@@ -66,15 +64,8 @@
             "width": 1600,
             "height": 1200,
             "title": "Spray painted to hide imperfections/ joint compound",
-            "caption": ""
-        },
-        {
-            "original_name": "000.png",
-            "filename": "000.webp",
-            "width": 1600,
-            "height": 1200,
-            "title": "Finished model in place",
-            "caption": ""
+            "caption": "",
+            "exclude": false
         },
         {
             "original_name": "07.png",
@@ -82,63 +73,35 @@
             "width": 1080,
             "height": 1440,
             "title": "Favorite details: Steps down to hagrid's cabin",
-            "caption": ""
+            "caption": "",
+            "exclude": false
         },
         {
-            "original_name": "03.png",
-            "filename": "03.webp",
+            "original_name": "10.png",
+            "filename": "10.webp",
             "width": 1600,
             "height": 1200,
-            "title": "",
-            "caption": ""
-        },
-        {
-            "original_name": "02.png",
-            "filename": "02.webp",
-            "width": 1600,
-            "height": 1200,
-            "title": "",
-            "caption": ""
+            "title": "Getting the fireplace base ready",
+            "caption": "",
+            "exclude": false
         },
         {
             "original_name": "12.png",
             "filename": "12.webp",
             "width": 1600,
             "height": 1200,
-            "title": "",
-            "caption": ""
+            "title": "FInal resting place",
+            "caption": "",
+            "exclude": false
         },
         {
-            "original_name": "08.png",
-            "filename": "08.webp",
+            "original_name": "000.png",
+            "filename": "000.webp",
             "width": 1600,
             "height": 1200,
-            "title": "",
-            "caption": ""
-        },
-        {
-            "original_name": "01.png",
-            "filename": "01.webp",
-            "width": 1600,
-            "height": 1200,
-            "title": "",
-            "caption": ""
-        },
-        {
-            "original_name": "14.png",
-            "filename": "14.webp",
-            "width": 1600,
-            "height": 1200,
-            "title": "",
-            "caption": ""
-        },
-        {
-            "original_name": "05.png",
-            "filename": "05.webp",
-            "width": 1600,
-            "height": 1200,
-            "title": "",
-            "caption": ""
+            "title": "Finished model in place",
+            "caption": "Everything blacked out ",
+            "exclude": false
         }
     ]
 }
