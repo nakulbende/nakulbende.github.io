@@ -196,6 +196,97 @@
       <div class="col-lg-12">
        <div id="my-portfolio">
         <!-- GALLERY_START -->
+    <style>
+        #my-portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        #my-portfolio a.gallery-item { display: block; overflow: hidden; border-radius: 8px; }
+        #my-portfolio a.gallery-item.hidden { display: none; }
+        #my-portfolio img { width: 100%; height: 200px; object-fit: cover; transition: transform 0.3s ease; }
+        #my-portfolio a.gallery-item:hover img { transform: scale(1.05); }
+
+        /* Forces LightGallery to leave padding so captions don't overlap images */
+        .lg-outer .lg-img-wrap {
+            padding-bottom: 80px !important;
+        }
+        .lg-outer .lg-sub-html {
+            padding: 15px 25px;
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        /* Enables smooth drag/scroll behavior for long thumbnail strips */
+        .lg-outer .lg-thumb-outer {
+            overflow-x: auto !important;
+            scroll-behavior: smooth;
+        }
+        .lg-outer .lg-thumb {
+            display: flex !important;
+        }
+    </style>
+
+        <a href="assets/img/large/13.webp" 
+           class="gallery-item"
+           data-lg-size="1600-1200" 
+           data-sub-html='<h4>Floo network!</h4><p>Some photos from one of the biggest print I made - hogwarts castle in extreme detail, installed in an unused fireplace as a diorama</p>'>
+           <img src="assets/img/thumbs/13.webp" alt="Floo network!" />
+        </a>
+        <a href="assets/img/large/10.webp" 
+           class="gallery-item"
+           data-lg-size="1600-1200" 
+           data-sub-html='<h4>Getting the fireplace base ready</h4>'>
+           <img src="assets/img/thumbs/10.webp" alt="Getting the fireplace base ready" />
+        </a>
+        <a href="assets/img/large/001.webp" 
+           class="gallery-item"
+           data-lg-size="1600-1200" 
+           data-sub-html='<h4>6 individual full area Form 3L builds ready, gluing with joint compound</h4>'>
+           <img src="assets/img/thumbs/001.webp" alt="6 individual full area Form 3L builds ready, gluing with joint compound" />
+        </a>
+        <a href="assets/img/large/04.webp" 
+           class="gallery-item"
+           data-lg-size="1600-1200" 
+           data-sub-html='<h4>Gluing up!</h4>'>
+           <img src="assets/img/thumbs/04.webp" alt="Gluing up!" />
+        </a>
+        <a href="assets/img/large/06.webp" 
+           class="gallery-item"
+           data-lg-size="1600-1200" 
+           data-sub-html='<h4>Great hall corridor</h4>'>
+           <img src="assets/img/thumbs/06.webp" alt="Great hall corridor" />
+        </a>
+        <a href="assets/img/large/00.webp" 
+           class="gallery-item"
+           data-lg-size="1600-1200" 
+           data-sub-html='<h4>Final steps of combining 6 full sized Form 3L prints</h4>'>
+           <img src="assets/img/thumbs/00.webp" alt="Final steps of combining 6 full sized Form 3L prints" />
+        </a>
+        <a href="assets/img/large/11.webp" 
+           class="gallery-item"
+           data-lg-size="1600-1200" 
+           data-sub-html='<h4>Ready as one peice!</h4>'>
+           <img src="assets/img/thumbs/11.webp" alt="Ready as one peice!" />
+        </a>
+        <a href="assets/img/large/09.webp" 
+           class="gallery-item"
+           data-lg-size="1600-1200" 
+           data-sub-html='<h4>Spray painted to hide imperfections/ joint compound</h4>'>
+           <img src="assets/img/thumbs/09.webp" alt="Spray painted to hide imperfections/ joint compound" />
+        </a>
+        <a href="assets/img/large/000.webp" 
+           class="gallery-item"
+           data-lg-size="1600-1200" 
+           data-sub-html='<h4>Finished model in place</h4>'>
+           <img src="assets/img/thumbs/000.webp" alt="Finished model in place" />
+        </a>
+        <a href="assets/img/large/07.webp" 
+           class="gallery-item"
+           data-lg-size="1080-1440" 
+           data-sub-html='<h4>Favorite details: Steps down to hagrid's cabin</h4>'>
+           <img src="assets/img/thumbs/07.webp" alt="Favorite details: Steps down to hagrid's cabin" />
+        </a>
         <!-- GALLERY_END -->
        </div>
        <div class="row">
@@ -310,6 +401,23 @@
   <script defer="" src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/plugins/zoom/lg-zoom.min.js">
   </script>
   <!-- GALLERY_JS_START -->
-  <!-- GALLERY_JS_END -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const galleryContainer = document.getElementById('my-portfolio');
+        if (galleryContainer && typeof lightGallery !== 'undefined') {
+            lightGallery(galleryContainer, {
+                selector: '.gallery-item',
+                plugins: [lgZoom, lgThumbnail],
+                speed: 500,
+                mode: 'lg-slide',
+                thumbnail: true,
+                zoomFromOrigin: true,
+                allowMediaOverlap: false,
+                swiping: true
+            });
+        }
+    });
+</script>
+<!-- <!-- GALLERY_JS_END --> -->
  </body>
 </html>

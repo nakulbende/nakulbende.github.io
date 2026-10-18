@@ -8,10 +8,14 @@ from flask import Flask, render_template_string, request, jsonify, send_from_dir
 app = Flask(__name__)
 
 # =========================================================
-# PATH CONFIGURATION
-# SCRIPT_DIR locates this file inside the 'python/' folder.
-# ROOT_DIR navigates one level up to the website root directory.
+# GLOBAL CONFIGURATION & TUNABLE PARAMETERS
+# Easily adjust gallery display settings right here.
 # =========================================================
+MAX_VISIBLE_IN_GRID = 12         # Number of photos shown in the initial masonry grid before hiding the rest
+CAPTION_PADDING_BOTTOM = "80px"  # Padding space reserved at the bottom of LightGallery so captions never overlap images
+# =========================================================
+
+# Path Configuration: Locates the repository root one level up from 'python/'
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 ROOT_DIR = os.path.dirname(SCRIPT_DIR)
 
@@ -105,7 +109,8 @@ def process_new_images():
                 "title": "",
                 "caption": "",
                 "width": width,
-                "height": height
+                "height": height,
+                "exclude": False
             })
         except Exception as e:
             print(f"Failed to process {file}: {e}")
@@ -122,36 +127,78 @@ def process_new_images():
             print("Original files deleted.")
 
 def inject_html(data):
-    """Injects LightGallery markup and CSS grid structure safely into HTML placeholders."""
-    MAX_VISIBLE = 12 
+    """Injects LightGallery markup, masonry styling, and layout parameters into HTML placeholders."""
     
-    html_content = """
+    html_content = f"""
     <style>
-        #my-portfolio {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
+        /* Masonry Collage Layout */
+        #my-portfolio {{
+            column-count: 1;
+            column-gap: 15px;
             margin-bottom: 30px;
-        }
-        #my-portfolio a.gallery-item { display: block; overflow: hidden; border-radius: 8px; }
-        #my-portfolio a.gallery-item.hidden { display: none; }
-        #my-portfolio img { width: 100%; height: 200px; object-fit: cover; transition: transform 0.3s ease; }
-        #my-portfolio a.gallery-item:hover img { transform: scale(1.05); }
+        }}
+        /* Responsive column amounts based on screen size */
+        @media (min-width: 576px) {{ #my-portfolio {{ column-count: 2; }} }}
+        @media (min-width: 992px) {{ #my-portfolio {{ column-count: 3; }} }}
+        @media (min-width: 1200px) {{ #my-portfolio {{ column-count: 4; }} }}
+
+        #my-portfolio a.gallery-item {{ 
+            display: inline-block; /* Prevents images from splitting across columns */
+            width: 100%; 
+            margin-bottom: 15px; /* Spacing between stacked images */
+            overflow: hidden; 
+            border-radius: 8px; 
+        }}
+        #my-portfolio a.gallery-item.hidden {{ display: none; }}
+        
+        #my-portfolio img {{ 
+            width: 100%; 
+            height: auto; /* Lets the image show its natural portrait/landscape shape */
+            display: block; 
+            transition: transform 0.3s ease; 
+        }}
+        #my-portfolio a.gallery-item:hover img {{ transform: scale(1.05); }}
+
+        /* Dynamic padding configuration for LightGallery captions */
+        .lg-outer .lg-img-wrap {{
+            padding-bottom: {CAPTION_PADDING_BOTTOM} !important;
+        }}
+        .lg-outer .lg-sub-html {{
+            padding: 15px 25px;
+            background: rgba(15, 23, 42, 0.9);
+        }}
+
+        /* Enables smooth drag/scroll behavior for long thumbnail strips */
+        .lg-outer .lg-thumb-outer {{
+            overflow-x: auto !important;
+            scroll-behavior: smooth;
+        }}
+        .lg-outer .lg-thumb {{
+            display: flex !important;
+        }}
     </style>
 """
     
-    for i, item in enumerate(data['images']):
-        title_attr = f"<h4>{item['title']}</h4>" if item['title'] else ""
-        caption_attr = f"<p>{item['caption']}</p>" if item['caption'] else ""
-        sub_html = f"{title_attr}{caption_attr}"
-        hidden_class = " hidden" if i >= MAX_VISIBLE else ""
+    active_images = [item for item in data['images'] if not item.get('exclude', False)]
+    
+    for i, item in enumerate(active_images):
+        title_attr = f"<h4>{item['title']}</h4>" if item.get('title') else ""
+        caption_attr = f"<p>{item['caption']}</p>" if item.get('caption') else ""
+        
+        if title_attr or caption_attr:
+            sub_html = f"{title_attr}{caption_attr}"
+            data_sub_html = f"data-sub-html='{sub_html}'"
+        else:
+            data_sub_html = "data-sub-html=''"
+
+        hidden_class = " hidden" if i >= MAX_VISIBLE_IN_GRID else ""
         
         html_content += f"""
         <a href="assets/img/large/{item['filename']}" 
            class="gallery-item{hidden_class}"
            data-lg-size="{item['width']}-{item['height']}" 
-           data-sub-html='{sub_html}'>
-           <img src="assets/img/thumbs/{item['filename']}" alt="{item['title']}" />
+           {data_sub_html}>
+           <img src="assets/img/thumbs/{item['filename']}" alt="{item.get('title', '')}" />
         </a>"""
     
     thumb_flag = "true" if data['settings']['thumbnails'] else "false"
@@ -168,7 +215,8 @@ def inject_html(data):
                 mode: '{transition_mode}',
                 thumbnail: {thumb_flag},
                 zoomFromOrigin: true,
-                allowMediaOverlap: false
+                allowMediaOverlap: false,
+                swiping: true
             }});
         }}
     }});
@@ -204,6 +252,25 @@ def save():
     inject_html(updated_data)
     return jsonify({"status": "success", "message": f"Updated & saved to {os.path.basename(TARGET_HTML)}!"})
 
+@app.route('/delete-image', methods=['POST'])
+def delete_image():
+    """Permanently deletes the WebP files and removes the item from JSON state."""
+    filename = request.json.get('filename')
+    data = load_data()
+    
+    # Remove from images list
+    data['images'] = [img for img in data['images'] if img['filename'] != filename]
+    save_data(data)
+    inject_html(data)
+    
+    # Remove physical files if they exist
+    for folder in [LARGE_DIR, THUMB_DIR, SRC_DIR]:
+        fp = os.path.join(folder, filename)
+        if os.path.exists(fp):
+            os.remove(fp)
+            
+    return jsonify({"status": "success", "message": f"Deleted {filename} completely!"})
+
 # --- Local Dashboard UI Template ---
 HTML_TEMPLATE = """
 <!DOCTYPE html>
@@ -217,12 +284,18 @@ HTML_TEMPLATE = """
         .settings-panel { background: #ffffff; padding: 16px 20px; border-radius: 8px; margin-bottom: 20px; display: flex; gap: 24px; align-items: center; border: 1px solid #e2e8f0; box-shadow: 0 1px 2px rgba(0,0,0,0.05);}
         button { background: #0f172a; color: #fff; border: none; padding: 10px 22px; border-radius: 6px; cursor: pointer; font-size: 15px; font-weight: 500;}
         button:hover { background: #334155; }
-        .row { display: flex; background: #ffffff; padding: 16px; margin-bottom: 12px; border-radius: 8px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.04); cursor: grab; align-items: center;}
+        .row { display: flex; background: #ffffff; padding: 16px; margin-bottom: 12px; border-radius: 8px; border: 1px solid #e2e8f0; box-shadow: 0 1px 3px rgba(0,0,0,0.04); cursor: grab; align-items: center; gap: 16px;}
         .row:active { cursor: grabbing; }
-        .thumb { width: 90px; height: 90px; object-fit: cover; border-radius: 6px; margin-right: 20px; background: #e2e8f0; }
+        .row.excluded { opacity: 0.4; background: #f1f5f9; border: 1px dashed #cbd5e1; }
+        .thumb { width: 90px; height: 90px; object-fit: cover; border-radius: 6px; background: #e2e8f0; flex-shrink: 0; }
         .inputs { display: flex; flex-direction: column; flex-grow: 1; gap: 8px; }
         input[type="text"], textarea, select { width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-family: inherit; font-size: 14px; box-sizing: border-box;}
         textarea { resize: vertical; height: 54px; }
+        .actions { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+        .btn-exclude { background: #e2e8f0; color: #475569; padding: 6px 12px; font-size: 13px; }
+        .row.excluded .btn-exclude { background: #f59e0b; color: #fff; }
+        .btn-delete { background: #ef4444; color: #fff; padding: 6px 12px; font-size: 13px; }
+        .btn-delete:hover { background: #dc2626; }
     </style>
 </head>
 <body>
@@ -249,11 +322,15 @@ HTML_TEMPLATE = """
 
     <div id="gallery-list">
         {% for item in data.images %}
-        <div class="row" data-orig="{{ item.original_name }}" data-file="{{ item.filename }}" data-w="{{ item.width }}" data-h="{{ item.height }}">
+        <div class="row {% if item.exclude %}excluded{% endif %}" data-orig="{{ item.original_name }}" data-file="{{ item.filename }}" data-w="{{ item.width }}" data-h="{{ item.height }}" data-exclude="{{ 'true' if item.exclude else 'false' }}">
             <img src="/assets/img/thumbs/{{ item.filename }}" class="thumb">
             <div class="inputs">
                 <input type="text" class="title-input" placeholder="Title (optional)" value="{{ item.title }}">
                 <textarea class="caption-input" placeholder="Caption/Description...">{{ item.caption }}</textarea>
+            </div>
+            <div class="actions">
+                <button type="button" class="btn-exclude" onclick="toggleExclude(this)">{% if item.exclude %}Excluded{% endif %}{% if not item.exclude %}Exclude{% endif %}</button>
+                <button type="button" class="btn-delete" onclick="deleteImage('{{ item.filename }}', this)">Delete</button>
             </div>
         </div>
         {% endfor %}
@@ -262,6 +339,35 @@ HTML_TEMPLATE = """
     <script>
         const el = document.getElementById('gallery-list');
         Sortable.create(el, { animation: 150 });
+
+        function toggleExclude(btn) {
+            const row = btn.closest('.row');
+            const isExcluded = row.dataset.exclude === 'true';
+            row.dataset.exclude = (!isExcluded).toString();
+            if (!isExcluded) {
+                row.classList.add('excluded');
+                btn.innerText = 'Excluded';
+            } else {
+                row.classList.remove('excluded');
+                btn.innerText = 'Exclude';
+            }
+        }
+
+        async function deleteImage(filename, btn) {
+            if (!confirm(`Are you sure you want to permanently delete ${filename}?`)) return;
+            
+            const response = await fetch('/delete-image', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ filename: filename })
+            });
+            
+            const result = await response.json();
+            if (result.status === 'success') {
+                btn.closest('.row').remove();
+                alert(result.message);
+            }
+        }
 
         async function saveData() {
             const rows = document.querySelectorAll('.row');
@@ -274,7 +380,8 @@ HTML_TEMPLATE = """
                     width: parseInt(row.dataset.w),
                     height: parseInt(row.dataset.h),
                     title: row.querySelector('.title-input').value,
-                    caption: row.querySelector('.caption-input').value
+                    caption: row.querySelector('.caption-input').value,
+                    exclude: row.dataset.exclude === 'true'
                 });
             });
             
